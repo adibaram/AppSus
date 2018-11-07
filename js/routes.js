@@ -1,16 +1,12 @@
-import home from './pages/home.js'
-import about from './pages/about.js'
-import car from './pages/car/car.js'
-import carDetails from './pages/car/car-details.js'
-import carEdit from './pages/car/car-edit.js'
-
+import appSus from './pages/app-sus/home.cmp.js'
+import missKeep from './pages/miss-keep/cmps/miss-keep.cmp.js'
+import misterEmail from './pages/mister-email/cmps/mister-email.cmp.js'
 
 const routes = [
-    {path: '/', component: home},
-    {path: '/about', component: about},
-    {path: '/car', component: car},
-    {path: '/car/edit/:carId?', component: carEdit},
-    {path: '/car/:carId', component: carDetails},
+    {path: '/', component: appSus},
+    {path: '/missKeep', component: missKeep},
+    {path: '/misterEmail', component: misterEmail},
+   
   ];
 
 Vue.use(VueRouter);
