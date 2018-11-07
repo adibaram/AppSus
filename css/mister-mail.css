@@ -1,5 +1,8 @@
 
-
 .email-app {
     background-image: url('/img/write.jpeg');
+}
+
+.email-app, ul {
+    list-style: none;
 }

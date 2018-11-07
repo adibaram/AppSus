@@ -10,7 +10,7 @@ export default {
     template: `
     <section class="email-app">
         <h1>emails 📧 💌</h1>
-            <!-- <email-filter @set-filter="setFilter"></email-filter> -->
+            <email-filter @set-filter="setFilter"></email-filter>
             <ul class="email-list">
                 <email-list :emails="emailsToShow" @selected="selectEmail"></email-list>  
             </ul>
@@ -30,9 +30,8 @@ export default {
             console.log('filter', this.filter)
             return this.emails.filter(email => {
                 
-                return email.title.includes(this.filter.byTitle);
-                    // && (!this.filter.fromPrice || book.listPrice.amount > this.filter.fromPrice)
-                    // && (!this.filter.toPrice || book.listPrice.amount < this.filter.toPrice)
+                return email.subject.includes(this.filter.bySubject)
+                
             })
         }
     },
