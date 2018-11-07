@@ -16,22 +16,23 @@ function makeId(length=5) {
     return text;
   }
 
-function getCurrency(currencyCode) {
-    switch(currencyCode){
-        case 'ILS' : 
-            return '₪';
-        case 'EUR' : 
-            return '€';
-        case 'USD' :
-            return '$';
-        default:
-            return '';
+function makeLorem(num) {
+    var text = "";
+    var texts = ''; 
+    var possible = "abcdefghijklmnopqrstuvwxyz";
+    
+    for (let j = 0; j < num+1; j++) {
+        for (let j = 0; j < Math.random()*num; j++) {
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+        texts += (' '+ text)
     }
+    return texts;
 }
 
 export default {
     getRandomInt,
     makeId,
-    getCurrency
+    makeLorem
 }
 
