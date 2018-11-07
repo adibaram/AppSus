@@ -5,7 +5,7 @@ export default {
     props: ['emails'],
     template: `
 
-    <section>
+    <section class="emails-container">
         <email-preview v-for="currentEmail in emails" :email="currentEmail" :key="currentEmail.id"></email-preview>
     </section>
     `, 

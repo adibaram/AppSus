@@ -6,7 +6,8 @@ const EMAILS_KEY = 'emails';
 
 export default {
     query,
-    getEmailById
+    getEmailById,
+    saveEmail
 }
 
 
@@ -60,7 +61,22 @@ function createEmail() {
 }
 
 
-
+function saveEmail(email) {
+  return storageService.load(EMAILS_KEY)
+      .then(emails => {
+          // Update
+          if (email.id) {
+              var emailIdx = emails.findIndex(currEmail => currEmail.id === email.id)
+              emails.splice(emailIdx, 1, email);
+          } else {
+              // Add
+              email.id = utilService.makeId();
+              email.push(email);
+          }
+          console.log('emails,' , emails);  
+          return storageService.store(EMAILS_KEY, emails);
+      });
+}
 
 
 

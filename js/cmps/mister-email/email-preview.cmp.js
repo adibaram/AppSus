@@ -2,7 +2,7 @@ export default {
     props: ['email'],
     template: `
         
-            <li class="email">
+            <li class="email-subject">
                 <h6>{{email.subject}}</h6>
             </li>
 `,  

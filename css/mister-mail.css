@@ -1,8 +1,61 @@
 
 .email-app {
-    background-image: url('/img/write.jpeg');
+    background-image: url('/img/laptop.jpeg');
 }
 
 .email-app, ul {
     list-style: none;
 }
+
+.email-subject {
+    padding: 5px;
+    margin-left: 30px;
+    border: solid 0.5px rgba(172, 170, 170, 0.372);
+    border-radius: 10px;  
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.email-subject:hover {
+    background-color: rgba(141, 161, 181, 0.619)
+}
+
+.email-compose {
+    border: solid 0.5px rgba(172, 170, 170, 0.372);
+    border-radius: 20px; 
+    max-width: 530px;
+    margin-left: 55px;
+}
+
+.email-compose > .field {
+    max-width: 500px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 5px;
+}
+
+
+
+.field {
+    opacity: 0.75;
+    padding: 10px;
+    margin-top: 15px;
+    margin-left: 25px;
+}
+
+.control-radio {
+    margin-left: 37px;
+}
+
+.emails-container {
+    padding: 10px;
+}
+
+.compose, .button {
+    padding: 10px;
+    margin: 30px;
+    margin-bottom: 20px;
+    /* margin-left: 40px;
+    margin-bottom: 15px; */
+}
+
