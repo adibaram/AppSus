@@ -4,20 +4,19 @@ export default {
     props: ['data'],
     template: `
     <section>
-        <button>img mote</button>
+        <!-- <button v-on:click="newImgNote">img mote</button> -->
     </section>
     `,
     data() {
         return {
             imgTitle: '',
-            backgroundColor: white,
-            isSelected: fales,
-
+            backgroundColor: 'white',
+            isSelected: false,
         }
     },
     methods: {
         reportVal() {
-            this.$emit('addNewNote', this.imgTitle)
+            this.$emit('newImgNote')
         }
     }
 }

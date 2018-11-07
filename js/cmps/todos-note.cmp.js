@@ -5,7 +5,6 @@ export default {
         <h2>todos</h2>
         <label>
                 {{data.label}}
-                <input type="text" v-model="todosTitle" @blur="reportVal" />
             </label>
     </section>
     `,
