@@ -5,22 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <title>Vue Cars App</title>
+    <title>appSus</title>
 </head>
 
 <body>
+    <div id="app">
+        <header>
+            <h1>Vue appSus</h1>
 
-        <div id="app">
-            <header>
-                <user-msg></user-msg>
-                <h1>Vue Cars</h1>
-
-                <router-link exact to="/">Home</router-link> | 
-                <router-link to="/car">Cars Manager</router-link> |
-                <router-link to="/about">About</router-link>
-            </header>
-            <router-view></router-view>
-        </div>
+            <router-link exact to="/">Home</router-link> |
+            <router-link to="/car">Cars Manager</router-link> |
+            <router-link to="/about">About</router-link>
+        </header>
+        <router-view></router-view>
+    </div>
 
     <script src="lib/vue.js"></script>
     <script src="lib/vue-router.js"></script>
