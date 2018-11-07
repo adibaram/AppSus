@@ -1,6 +1,7 @@
+
 import appSus from './pages/home.cmp.js'
 import missKeep from './pages/miss-keep.cmp.js'
-import misterEmail from './pages/email-app.cmp.js'
+import misterEmail from './pages/mister-email.cmp.js'
 
 const routes = [
     {path: '/', component: appSus},

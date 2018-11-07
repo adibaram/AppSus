@@ -1,17 +1,18 @@
 
 import emailService from '../services/email.service.js'
-import emailList from '../cmps/email-list.cmp.js'
-import emailFilter from '../cmps/email-filter.cmp.js'
-import emailDetails from '../pages/email-details.cmp.js'
+import emailList from '../cmps/mister-email/email-list.cmp.js'
+import emailFilter from '../cmps/mister-email/email-filter.cmp.js'
+import emailDetails from '../cmps/mister-email/email-details.cmp.js'
 
 
 
 export default {
     template: `
-    <section>
-            <email-filter @set-filter="setFilter"></email-filter>
-            <ul class="book-list">
-                <email-list v-bind:books="booksToShow" @selected="selectBook"></email-list>  
+    <section class="email-app">
+        <h1>emails 📧 💌</h1>
+            <!-- <email-filter @set-filter="setFilter"></email-filter> -->
+            <ul class="email-list">
+                <email-list :emails="emailsToShow" @selected="selectEmail"></email-list>  
             </ul>
     </section>
     `,
@@ -43,8 +44,8 @@ export default {
             this.filter = filter
         },
 
-        selectBook(book) {
-            console.log('app - book selected', book);
+        selectEmail(email) {
+            console.log('app - email selected', email);
             this.selectedEmail = email;
         },
     },
