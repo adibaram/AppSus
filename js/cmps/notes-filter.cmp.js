@@ -1,6 +1,6 @@
 export default {
     template:`
-   <section class="missKeep">
+   <section class="notes-filter">
    <h1>MISS KEEP</h1>
     <form>
         search note: <input type="text" @input="setFilter" v-model="filter.byTitle" />
