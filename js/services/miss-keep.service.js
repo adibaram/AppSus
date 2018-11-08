@@ -26,23 +26,12 @@ function createInitialNotes() {
         type: 'imgNote',
         data: {
             title: 'third',
-            url: 'https://www.google.co.il/search?q=img+gif&source=lnms&tbm=isch&sa=X&ved=0ahUKEwji1YSUrcTeAhUBNOwKHU_1AHIQ_AUIDigB&biw=1366&bih=626#imgrc=MHHi2uaY_TfIBM:',
+            url: 'http://www.jquery-az.com/html/images/banana.jpg',
         },
-        color: "#ffffff"
+        color: "#ffffff",
+        id: 1
     },]
 }
-
-/*
-TODO:
-show list of notes
-    you will need <note-list></note-list>
-    in note-list, you will neet to render dynnamic cmp
-
-    next-step:
-    delete-note
-    add more kinds of notes
-*/
-
 
 function query(filter = null) {
     return storageService.load(KEY)
@@ -51,10 +40,10 @@ function query(filter = null) {
                 notes = createInitialNotes();
                 storageService.store(KEY, notes);
             }
-            console.log('notes: ', notes);
             if (filter === null) return notes;
-            else return notes.filter(note => 
-                            note.title.toUpperCase().includes(filter.byTitle.toUpperCase()))
+            else return notes.filter(note => {
+                            return note.data.title.toUpperCase().includes(filter.byTitle.toUpperCase())
+            })
         })
 }
 
