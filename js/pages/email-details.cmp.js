@@ -1,4 +1,5 @@
 import emailService from '../services/email.service.js'
+import router from '../routes.js'
 import busService from '../services/event-bus.service.js'
 
 export default {
@@ -17,7 +18,8 @@ export default {
                             {{email.body}}
                     </section>
                     <footer class="modal-card-foot">
-                        <button class="button is-primary">Replay</button>
+                        <button @click="replay" class="button is-primary">Replay</button>
+                        <!-- <router-link to="/misterEmail/response"><button class="button is-primary">Replay</button></router-link> -->
                         <button class="button" @click="deleteEmail">Delete</button>
                     </footer>       
             </div>
@@ -50,6 +52,10 @@ export default {
         returnToPreview() {
             this.$router.push('/misterEmail');
         },
+
+        replay(){
+            this.$router.push('response'); 
+        }
 
     },
 }

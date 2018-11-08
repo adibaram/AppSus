@@ -65,13 +65,18 @@ export default {
             console.log('SEND');
             console.log(this.form)
             emailService.saveEmail(email)
-            .then(()=> this.$emit('emailSent'))
+            .then(()=> {
+                this.$emit('emailSent')
+                this.$router.push('/misterEmail');
+            })
+
             // this.isOn = !this.isOn;
 
         },
 
         onDiscard() {
             this.$emit('discard')
+            this.$router.push('/misterEmail');
         }
     },
 

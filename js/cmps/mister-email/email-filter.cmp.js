@@ -26,7 +26,7 @@ export default {
                 <input type="radio" name="status" value="unread" v-model="filter.emailStatus" @input="setFilter">
                 Unread
             </label>
-            <unread-counter>5</unread-counter>
+            <unread-counter></unread-counter>
         </div>
         <!-- {{filter.emailStatus}} -->
     </section>
