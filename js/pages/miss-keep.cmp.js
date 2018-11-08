@@ -1,29 +1,36 @@
-import notesFilter from '../cmps/notes-filter.cmp.js';
-import notesDisplay from '../cmps/notes-display.cmp.js'
-import addNewNote from '../cmps/add-new-note.cmp.js'
-import editKeepModal from '../cmps/edit-keep-modal.cmp.js'
+import notesFilter from '../cmps/miss-keep/notes-filter.cmp.js' 
+import modalTxtNote from '../cmps/miss-keep/modal-txt-note.cmp.js'
+import modalImgNote from '../cmps/miss-keep/modal-img-note.cmp.js'
+
+import listNote from '../cmps/miss-keep/list-note.cmp.js'
+import missKeepService from '../services/miss-keep.service.js'
 
 export default {
     template: `
     <section class="container"style="background:hotpink;">
         <notes-filter @setFilter="setFilter"></notes-filter>
-        <add-new-note
-        @newTextNote="newTextNote" @newImgNote="newImgNote" @newTodosNote="newTodosNote">
-        </add-new-note>
+        <div class="add-note-container">
+            <button v-on:click="toggelTxtModal">Add text note</button>
+            <button v-on:click="toggelImgModal">add img note</button>
+        </div>
+        <modal-txt-note v-if ="showTxtModal" @toggelTxtModal="toggelTxtModal" @saveNote="saveNote"></modal-txt-note>
+        <modal-img-note v-if ="showimgModal" @toggelImgModal="toggelImgModal" @saveNote="saveNote"></modal-img-note>
 
-        <notes-display></notes-display>
-        <edit-keep-modal v-if="noteToEdit" :note="noteToEdit"></edit-keep-modal>
+        <list-note v-if="notes" :notes="notes" @delete-note="deleteNote"></list-note>  
+<!-- {{notes}} -->
     </section>
     `,
     data() {
         return {
             filter: null,
-            showModal: false,
-            modalType: null,
-            noteToEdit: null,
+            showTxtModal: false,
+            showimgModal: false,
+            notes: [],
         }
     },
     created() {
+        missKeepService.query()
+        .then(notes => this.notes = notes) 
     },
     computed: {
         notesToShow() {
@@ -36,55 +43,28 @@ export default {
         setFilter(filter) {
             this.filter = filter
         },
-        newTextNote() {
-            console.log('new text note')
-            this.noteToEdit = {
-
-                type: 'txtNote',
-                data: {
-                    text: {
-                        title: '',
-                        content: ''
-                    }
-                }
-            }
-
+        toggelTxtModal() {
+            this.showTxtModal = !this.showTxtModal
         },
-        newImgNote() {
-            console.log('new img note')
-            this.noteToEdit = {
-
-                type: 'imgNote',
-                data: {
-                    text: {
-                        title: '',
-                        url: ''
-                    }
-                }
-            }
+        toggelImgModal(){
+            // console.log('new img note clicked')
+            this.showimgModal = !this.showimgModal
         },
-        newTodosNote(){
-            this.noteToEdit = {
-
-                type: 'todosNote',
-                data: {
-                    text: {
-                        title: '',
-                        ul: ''
-                    }
-                }
-            }
-
+        saveNote(note){
+            missKeepService.saveNote(note)
+            .then(notes => this.notes = notes)
+            this.toggelTxtModal()
         },
-    },
-    computed:{
-        // isAddMode(){
-        // }
+        deleteNote(noteId){
+            missKeepService.deleteNote(noteId)
+            .then(() => missKeepService.query(this.filter))
+            .then(notes => this.notes = notes)
+        }
     },
     components: {
         notesFilter,
-        notesDisplay,
-        addNewNote,
-        editKeepModal
+        modalTxtNote,
+        modalImgNote,
+        listNote,
     }
 }

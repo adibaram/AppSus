@@ -334,7 +334,14 @@ pre {
   -webkit-font-smoothing: auto;
   font-family: monospace;
 }
-
+.txt-note{
+  width: fit-content;
+  margin: 10px;
+}
+.img-note{
+  width: fit-content;
+  margin: 10px;
+}
 body {
   color: #4a4a4a;
   font-size: 1rem;
