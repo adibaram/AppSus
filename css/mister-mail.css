@@ -1,12 +1,19 @@
 
 .email-app {
     background-image: url('../img/laptop.jpeg');
+    background-size: contain; 
+    min-height: 1000px;  
 }
 
 .email-app, ul {
     list-style: none;
 }
 
+.email-details {
+    background-image: url('../img/laptop.jpeg');
+    background-size: contain; 
+    min-height: 700px;  
+}
 .email-subject {
     padding: 5px;
     margin-left: 30px;
@@ -14,6 +21,12 @@
     border-radius: 10px;  
     cursor: pointer;
     transition: 0.2s;
+   
+}
+
+.subject-container {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
 }
 
 .email-subject:hover {
@@ -34,7 +47,15 @@
     margin-left: 5px;
 }
 
+.unread-counter {
+    height: 30px;
+    width: 30px; 
+    color: white;
+    border-radius: 50%;
+    background-color: rgba(203, 42, 42, 0.893); 
+    margin-left: 10px;
 
+}
 
 .field {
     opacity: 0.75;
@@ -45,6 +66,8 @@
 
 .control-radio {
     margin-left: 37px;
+    display: flex;
+    align-items: center;
 }
 
 .emails-container {

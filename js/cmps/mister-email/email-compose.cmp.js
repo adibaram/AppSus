@@ -1,5 +1,6 @@
 import utilService from '../../services/util.service.js'
 import emailService from '../../services/email.service.js'
+import storageService from '../../services/storage.service.js'
 
 export default {
     template: `
@@ -37,37 +38,42 @@ export default {
             <button @click="onSend" class="button is-link">Send</button>
         </div>
         <div class="control">
-            <button class="button is-text">Discard</button>
+            <button @click="onDiscard" class="button is-text">Discard</button>
         </div>
         </div>
     </section>
-    `, 
+    `,
 
     data() {
         return {
             form: {
-                id: utilService.makeId(),
+                id: '',
                 subject: '',
                 body: '',
                 isRead: false,
-                sentAt: Date.now(), 
-            }    
+                sentAt: new Date(),
+            }
         }
     },
 
     methods: {
+
         onSend() {
 
-            this.form.sentAt = Date.now()
-            let email = this.form; 
-            emailService.saveEmail(email);
-
+            this.form.sentAt = new Date();
+            let email = this.form;
             console.log('SEND');
             console.log(this.form)
+            emailService.saveEmail(email)
+            .then(()=> this.$emit('emailSent'))
             // this.isOn = !this.isOn;
 
+        },
+
+        onDiscard() {
+            this.$emit('discard')
         }
     },
 
-    
+
 }

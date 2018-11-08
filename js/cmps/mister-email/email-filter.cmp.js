@@ -1,3 +1,5 @@
+import unreadCounter from './unread-counter.cmp.js'
+
 export default {
     template: `
     <section class="filter-container">
@@ -24,6 +26,7 @@ export default {
                 <input type="radio" name="status" value="unread" v-model="filter.emailStatus" @input="setFilter">
                 Unread
             </label>
+            <unread-counter>5</unread-counter>
         </div>
         <!-- {{filter.emailStatus}} -->
     </section>
@@ -43,5 +46,8 @@ export default {
             this.$emit('set-filter', this.filter);
 
         }
+    },
+    components: {
+        unreadCounter
     }
 }
