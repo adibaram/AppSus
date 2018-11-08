@@ -10,11 +10,12 @@ export default {
                        v-for="note in notes"
                        :is="note.type" 
                        :data="note.data"
-                       @delete-note="$emit('delete-note', note.id)">
+                       @delete-note="$emit('delete-note', note.id)"
+                       @edit-note="$emit('edit-note' , note.id)"
+                       >
                 </component>
             </section>
     `,
-
     components: {
         textNote,
         imgNote

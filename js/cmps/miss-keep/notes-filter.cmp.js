@@ -1,7 +1,6 @@
 export default {
     template:`
    <section class="notes-filter">
-   <h1>MISS KEEP</h1>
     <form>
         search note: <input type="text" @input="setFilter" v-model="filter.byTitle" />
     </form>   
@@ -17,7 +16,8 @@ export default {
     },
     methods: {
         setFilter() {
-            this.$emit('setFilter', this.filter);
+            this.$emit('set-filter', {...this.filter});
+            console.log(this.filter)
         }
     }
 };

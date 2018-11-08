@@ -9,11 +9,13 @@ export default {
             <p class="modal-card-title">{{note.id? 'Edit your Note' : 'Add New Note'}}</p>
             <button class="delete"  aria-label="close" @click="closeModal"></button>
             </header>
-            <input type="text" v-model="note.data.title" placeholder="type title for the note"/>
+            <div class="modal-card-body">
+            <input class="note-title" type="text" v-model="note.data.title" placeholder="type title for the note"/>
             <section class="modal-card-body"> </section>
-            <input type="text" v-model="note.data.content" placeholder="start here..."/>
+            <textarea type="text" v-model="note.data.content" placeholder="start here..."/>
             <div class=btn-continer>
-            <input type="color" v-model="note.color">
+            <span>note color: </span><input type="color" v-model="note.color">
+            </div>
             </div>
             <footer class="modal-card-foot">
             <button class="button is-success" @click="saveNote">Save</button>
@@ -31,7 +33,7 @@ export default {
                     title: '',
                     content: '',
                 },
-                color: "#ffffff"
+                color: 'white'
             },
         }
     },

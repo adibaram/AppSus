@@ -1,21 +1,21 @@
 
 export default {
-    // props: ['note'],
     template: `
     <section class="modal-todos-note">
         <div class="modal is-active">
             <div class="modal-background"></div>
             <div class="modal-card">
             <header class="modal-card-head">
-            <p class="modal-card-title">{{note.id? 'Edit your Note' : 'Add New Note'}}</p>
+            <p class="modal-card-title">{{note.id? 'Edit Your Note' : 'Add New Note'}}</p>
             <button class="delete"  aria-label="close" @click="closeModal"></button>
             </header>
-            <input type="text" v-model="note.data.title" placeholder="type title for the note"/>
-            <section class="modal-card-body"> </section>
-            <img src="note.data.url"/>
+            <input type="text" v-model="note.data.title" placeholder="type title for the note" required>
+            <section class="modal-card-body">
+            <input type="text" v-model="note.data.url" placeholder="type image url"/>
             <div class=btn-continer>
-            <input type="color" v-modal="note.color" @change="changeBgcColor">
+            <input type="color" v-model="note.color">
             </div>
+             </section>
             <footer class="modal-card-foot">
             <button class="button is-success" @click="saveNote">Save</button>
             <button class="button" @click="closeModal">Cancel</button>
@@ -31,8 +31,8 @@ export default {
                 data: {
                     title: '',
                     url: '',
+                    color: "#ffffff"
                 },
-                color: "#ffffff"
             },
         }
     },
@@ -45,12 +45,7 @@ export default {
         }
     },
     components: {
-        changeBgcColor(){
-            // note.color = this.note.color;
-            // this.$emit('changeBgnColor' , this.note.color)
-
-        }
-        
+              
     }
 }
 
