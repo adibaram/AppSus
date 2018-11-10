@@ -4,5 +4,8 @@
 @import './helpers.css';
 @import './appsus.css';
 
-
+.router-link-active {
+    color: black;
+    font-weight: 700;
+}
 

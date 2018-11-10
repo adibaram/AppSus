@@ -4,7 +4,7 @@ export default {
     template: `
     <section class="img-note">
 
-        <div class="card" :style:="'background-color:' + data.colot">
+        <div class="card" :style="'background-color:' + data.color">
         <div class="card-image">
             <figure class="image is-4by3">
             <img :src="data.url">

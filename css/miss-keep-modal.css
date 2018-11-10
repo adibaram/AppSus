@@ -1,3 +1,25 @@
 .note-title{
   width: 100px;
 }
+
+
+.add-note-container{
+  text-align: center;
+}
+.add-note-container > a{
+  margin: 0;
+}
+
+.add-todo > a {
+  margin: 0;
+}
+.card-footer{
+  height: 35px;
+}
+
+.card-header-title{
+  height: 40px;
+}
+.card-content{
+  padding: 10px;
+}

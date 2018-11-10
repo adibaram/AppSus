@@ -11,7 +11,7 @@ export default {
                <br><span class="subject-time">{{email.sentAt}}</span>
             </li>   
         </router-link>
-`,  
+    `,  
 
 
 

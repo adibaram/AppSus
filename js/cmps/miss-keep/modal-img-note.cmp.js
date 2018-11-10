@@ -1,24 +1,28 @@
 
 export default {
-    template: `
-    <section class="modal-todos-note">
-        <div class="modal is-active">
-            <div class="modal-background"></div>
-            <div class="modal-card">
-            <header class="modal-card-head">
-            <p class="modal-card-title">{{note.id? 'Edit Your Note' : 'Add New Note'}}</p>
+    template: ` 
+     <section class="modal-img-note">
+    <div class="modal is-active">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+        <header class="modal-card-head">
+        <p class="modal-card-title">{{note.id? 'Edit Your Note' : 'Add New Note'}}</p>
             <button class="delete"  aria-label="close" @click="closeModal"></button>
             </header>
-            <input type="text" v-model="note.data.title" placeholder="type title for the note" required>
-            <section class="modal-card-body">
-            <input type="text" v-model="note.data.url" placeholder="type image url"/>
-            <div class=btn-continer>
-            <input type="color" v-model="note.color">
+            <div class="modal-card-body">
+                <div class="field">
+                <input class="input" type="text" v-model="note.data.title" placeholder="type title for the note">
+                </div>
+                <div class="field">
+                <input class="input" type="text" v-model="note.data.url" placeholder="enter image url">
+                </div>
+                    <div class="control field">
+                    note background color:  <input type="color" v-model="note.data.color">
+                </div>
             </div>
-             </section>
             <footer class="modal-card-foot">
-            <button class="button is-success" @click="saveNote">Save</button>
-            <button class="button" @click="closeModal">Cancel</button>
+            <button class="button is-primary" @click="saveNote">Save</button>
+            <button class="button is-light" @click="closeModal">Cancel</button>
             </footer>
         </div>
         </div>

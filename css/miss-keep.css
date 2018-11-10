@@ -1,5 +1,25 @@
 .keep-app {
     /* background-image: url('../img/unsplash.jpg');
-    background-size: contain; 
-    min-height: 1000px;   */
+    background-size: contain;  */
+    min-height: 1000px;  
 }
+.txt-note{
+    width: fit-content;
+    margin: 10px;
+  }
+  .img-note{
+    width: fit-content;
+    margin: 10px;
+  }
+  .todos-note{
+    width: fit-content;
+    margin: 10px;   
+  }
+  .notes-list{
+    width: 90%;
+    /* min-height: 1000px;   */
+
+  }
+  .add-note-container{
+    margin-bottom: 30px
+  }
