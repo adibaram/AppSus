@@ -7,7 +7,7 @@ export default {
     template: `
 
     <section class="emails-container">
-        <email-preview  v-for="currentEmail in emails" :email="currentEmail" :key="currentEmail.id"></email-preview>
+        <email-preview v-for="currentEmail in emails" :email="currentEmail" :key="currentEmail.id"></email-preview>
     </section>
     `, 
     methods: {

@@ -7,7 +7,7 @@ import missKeepService from '../services/miss-keep.service.js'
 
 export default {
     template: `
-    <section class="container">
+    <section class="container keep-app">
         <notes-filter @set-filter="setFilter"></notes-filter>
         <div class="add-note-container">
             <button v-on:click="toggelTxtModal">Add text note</button>
@@ -31,6 +31,7 @@ export default {
         missKeepService.query()
         .then(notes => this.notes = notes) 
     },
+
     computed: {
         notesToShow() {
             if (!this.filter) return this.notes;
@@ -39,6 +40,7 @@ export default {
                 
         }
     },
+    
     methods: {
         setFilter(filter) {
             this.filter = filter

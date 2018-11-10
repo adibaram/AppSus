@@ -5,9 +5,10 @@ export default {
     template: `
         
         <router-link :to="'/misterEmail/'+email.id" class="subject-container" @click.native="onSelected">
-            <li class="email-subject">
-                <!-- <h6>{{email.subject}}</h6> -->
+            <li ref="title" class="email-subject" :class="{ read: email.isRead }"
+                :style="[email.isRead ? {'font-weight': '330'} : {'font-weight': '800'}]">
                {{email.subject}}
+               <br><span class="subject-time">{{email.sentAt}}</span>
             </li>   
         </router-link>
 `,  
@@ -16,15 +17,17 @@ export default {
 
     data() {
         return {
-       
+        
         }
     },
     
     created() {
-        // console.log('Email-Preview was created!', this.email);
 
     },
 
+    mounted() {
+
+    },
 
     computed: {
              

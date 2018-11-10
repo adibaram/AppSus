@@ -3,6 +3,7 @@ import emailService from '../../services/email.service.js'
 import storageService from '../../services/storage.service.js'
 
 export default {
+    props: ['emailId'],
     template: `
     <section class="email-compose">
 
@@ -12,18 +13,18 @@ export default {
                  <input v-model="form.subject" class="input" type="text" placeholder="Text input">
             </div>
         </div>
-        <div class="field">
-        <label class="label">To</label>
-        <div class="control has-icons-left has-icons-right">
-            <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
-            <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
-            </span>
-            <span class="icon is-small is-right">
-            <i class="fas fa-exclamation-triangle"></i>
-            </span>
-        </div>
-        <p class="help is-danger">This email is invalid</p>
+        <div class="field" ref="sendTo">
+            <label class="label">To</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
+                <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+                </span>
+                <span class="icon is-small is-right">
+                <i class="fas fa-exclamation-triangle"></i>
+                </span>
+            </div>
+            <p class="help is-danger">This email is invalid</p>
         </div>
 
         <div class="field">
@@ -44,6 +45,20 @@ export default {
     </section>
     `,
 
+    mounted() {
+        let emailId = this.$route.params.emailId;
+
+        if(emailId) {
+            this.$refs.sendTo.style = "display:none"
+            console.log('hoogabooga');
+            emailService.getEmailById(emailId)
+            .then(email=>{
+                this.form.subject = 'Re: '+ email.subject;
+            })
+            
+            
+        }
+    },
     data() {
         return {
             form: {
@@ -51,7 +66,7 @@ export default {
                 subject: '',
                 body: '',
                 isRead: false,
-                sentAt: new Date(),
+                sentAt: moment().format('MMMM Do YYYY, h:mm:ss a'),
             }
         }
     },
@@ -60,7 +75,7 @@ export default {
 
         onSend() {
 
-            this.form.sentAt = new Date();
+            this.form.sentAt = moment().format('MMMM Do YYYY, h:mm:ss a');
             let email = this.form;
             console.log('SEND');
             console.log(this.form)

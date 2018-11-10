@@ -14,7 +14,8 @@ export default {
                         <button class="delete" aria-label="close" @click="returnToPreview"></button>
                     </header>
                     <section class="modal-card-body">
-                            recieved at: {{email.sentAt}} <br>
+                            recieved at: {{email.sentAt}}
+                             <br><br>
                             {{email.body}}
                     </section>
                     <footer class="modal-card-foot">
@@ -54,7 +55,8 @@ export default {
         },
 
         replay(){
-            this.$router.push('response'); 
+            const emailId = this.$route.params.emailId;
+            this.$router.push(`response/${emailId}`); 
         }
 
     },

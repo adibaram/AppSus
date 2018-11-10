@@ -31,7 +31,10 @@ function query() {
 
 function getEmailById(emailId) {
     return storageService.load(EMAILS_KEY)
-        .then(emails => emails.find(email => email.id === emailId))
+        .then(emails => {
+            console.log(emails)
+            return emails.find(email => email.id === emailId);
+        });
 }
 
 
@@ -52,9 +55,9 @@ function createEmail() {
     var email = {
         id: utilService.makeId(),
         subject: utilService.makeLorem(4),
-        body: utilService.makeLorem(25),
+        body: utilService.makeLorem(4),
         isRead: false,
-        sentAt: new Date(),
+        sentAt: moment().format('MMMM Do YYYY, h:mm:ss a'),
     }
     return email;
 }

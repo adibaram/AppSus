@@ -6,7 +6,7 @@ export default {
         <div class="field">
             <p class="control has-icons-left"> 
         <!-- <form @submit.prevent="setFilter"> -->
-            <input type="email" @input="setFilter" v-model="filter.txt" class="input" placeholder="Search"/>
+            <input type="email" @input="setFilter" v-model="filter.txt" class="search input" placeholder="Search"/>
                 <span class="icon is-small is-left">
                     <i class="fas fa-envelope"></i>
                 </span>
@@ -15,15 +15,15 @@ export default {
         </div>
         <div class="control control-radio">
             <label class="radio">
-                <input type="radio" name="status" value="all" v-model="filter.emailStatus" @input="setFilter"> 
+                <input type="radio" name="status" value="all" v-model="filter.emailStatus" @input="setFilter" class="option-input radio"> 
                 All
             </label>
             <label class="radio">
-                <input type="radio" name="status" value="read" v-model="filter.emailStatus" @input="setFilter">
+                <input type="radio" name="status" value="read" v-model="filter.emailStatus" @input="setFilter" class="option-input radio">
                 Read
             </label>
             <label class="radio">
-                <input type="radio" name="status" value="unread" v-model="filter.emailStatus" @input="setFilter">
+                <input type="radio" name="status" value="unread" v-model="filter.emailStatus" @input="setFilter" class="option-input radio">
                 Unread
             </label>
             <unread-counter></unread-counter>

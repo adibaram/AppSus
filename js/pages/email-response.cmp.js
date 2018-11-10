@@ -14,8 +14,7 @@ export default {
                         <button class="delete" aria-label="close" @click="returnToPreview" ></button>
                     </header>
                 <section class="modal-card-body">
-                        <email-compose></email-compose>
-         
+                        <email-compose :email="emailId" v-if="emailId"></email-compose>
                 </section>
             </div>
         </div>
@@ -26,12 +25,14 @@ export default {
         return {
             email:{
                 body:'',
-            }
+            },
+            emailId: null
         }
     },
     created() {
         // debugger;
         console.log('email response created')
+        this.emailId = this.$route.params.emailId;
  
     },
     methods: {
