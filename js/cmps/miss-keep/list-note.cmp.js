@@ -6,7 +6,7 @@ import todosNote from './todos-note.cmp.js';
 export default {
     props: ['notes'],
     template: `
-            <section class="notes-list control field">
+            <section class="notes-list columns is-multiline is-mobile" style="margin: auto;">
                 <component class="note"
                        v-for="note in notes"
                        :is="note.type" 

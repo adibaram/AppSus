@@ -3,10 +3,11 @@ export default {
     props: ['data'],
     template: `
         <section class="txt-note">
-            <div class="card" style="backgroun-color: pink;">
+            <div class="card" :style="'background-color:' + data.color">
             <header class="card-header">
                 <p class="card-header-title">
                 {{data.title}}
+                
                 </p>
             </header>
             <div class="card-content">

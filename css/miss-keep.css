@@ -10,3 +10,11 @@
     width: fit-content;
     margin: 10px;   
   }
+  .notes-list{
+    width: 90%;
+    /* min-height: 1000px;   */
+
+  }
+  .add-note-container{
+    margin-bottom: 30px
+  }

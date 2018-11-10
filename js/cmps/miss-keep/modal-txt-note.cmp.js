@@ -20,7 +20,7 @@ export default {
                     <textarea class="textarea is-primary" v-model="note.data.content" placeholder="Start typing here.."rows="5" ></textarea>
                 </div>
                     <div class="control field">
-                    note background color:  <input type="color" v-model="note.color">
+                    note background color:  <input type="color" v-model="note.data.color">
                 </div>
             </div>
             <footer class="modal-card-foot">
@@ -39,8 +39,8 @@ export default {
                 data: {
                     title: '',
                     content: '',
+                    color: 'white'
                 },
-                color: 'white'
             },
         }
     },
@@ -60,8 +60,7 @@ export default {
         }
     },
     components: {
-        // note.color = this.note.color;
-        // this.$emit('changeBgnColor' , this.note.color)
+    
     }
 }
 

@@ -17,7 +17,7 @@ export default {
                 <input class="input" type="text" v-model="note.data.url" placeholder="enter image url">
                 </div>
                     <div class="control field">
-                    note background color:  <input type="color" v-model="note.color">
+                    note background color:  <input type="color" v-model="note.data.color">
                 </div>
             </div>
             <footer class="modal-card-foot">
@@ -35,8 +35,8 @@ export default {
                 data: {
                     title: '',
                     url: '',
+                    color: "#ffffff"
                 },
-                color: "#ffffff"
             },
         }
     },

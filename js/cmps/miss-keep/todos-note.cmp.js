@@ -3,7 +3,7 @@ export default {
     props: ['data'],
     template: `
         <section class="todos-note" >
-            <div class="card">
+            <div class="card" :style="'background-color:' + data.color">
             <header class="card-header">
                 <p class="card-header-title">
                 {{data.title}}

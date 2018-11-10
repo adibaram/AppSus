@@ -43,7 +43,7 @@ export default {
                     </div>
                     </div>
                     <div class="control field">
-                    note background color:  <input type="color" v-model="note.color">
+                    note background color:  <input type="color" v-model="note.data.color">
                 </div>
             </div>
             <footer class="modal-card-foot">
@@ -61,6 +61,7 @@ export default {
                 type: 'todosNote',
                 data: {
                     title: '',
+                    color: 'white',
                     todos: [
                         {
                         todoId: null,    
@@ -69,7 +70,6 @@ export default {
                         }
                     ],
                 },
-                color: "#ffffff"
             },
         }
     },
