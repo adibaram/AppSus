@@ -1,3 +1,12 @@
-.mister-email {
-
-}
+.txt-note{
+    width: fit-content;
+    margin: 10px;
+  }
+  .img-note{
+    width: fit-content;
+    margin: 10px;
+  }
+  .todos-note{
+    width: fit-content;
+    margin: 10px;   
+  }

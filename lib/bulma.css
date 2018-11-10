@@ -334,14 +334,7 @@ pre {
   -webkit-font-smoothing: auto;
   font-family: monospace;
 }
-.txt-note{
-  width: fit-content;
-  margin: 10px;
-}
-.img-note{
-  width: fit-content;
-  margin: 10px;
-}
+
 body {
   color: #4a4a4a;
   font-size: 1rem;
@@ -5352,6 +5345,7 @@ a.tag:hover {
   align-items: stretch;
   box-shadow: 0 1px 2px rgba(10, 10, 10, 0.1);
   display: flex;
+  height: 40px;
 }
 
 .card-header-title {
@@ -5361,6 +5355,7 @@ a.tag:hover {
   flex-grow: 1;
   font-weight: 700;
   padding: 0.75rem;
+  height: fit-content;
 }
 
 .card-header-title.is-centered {
@@ -5382,7 +5377,7 @@ a.tag:hover {
 
 .card-content {
   background-color: transparent;
-  padding: 1.5rem;
+  padding: 10px;
 }
 
 .card-footer {

@@ -10,21 +10,28 @@ export default {
             <button class="delete"  aria-label="close" @click="closeModal"></button>
             </header>
             <div class="modal-card-body">
-            <input class="note-title" type="text" v-model="note.data.title" placeholder="type title for the note"/>
-            <section class="modal-card-body"> </section>
-            <textarea type="text" v-model="note.data.content" placeholder="start here..."/>
-            <div class=btn-continer>
-            <span>note color: </span><input type="color" v-model="note.color">
-            </div>
+                <div class="field">
+                    
+
+                        <input class="input" type="text" v-model="note.data.title" placeholder="type title for the note" required/>
+            
+                </div>
+                <div class="field">
+                    <textarea class="textarea is-primary" v-model="note.data.content" placeholder="Start typing here.."rows="5" ></textarea>
+                </div>
+                    <div class="control field">
+                    note background color:  <input type="color" v-model="note.color">
+                </div>
             </div>
             <footer class="modal-card-foot">
-            <button class="button is-success" @click="saveNote">Save</button>
-            <button class="button" @click="closeModal">Cancel</button>
+            <button class="button is-primary" @click="saveNote">Save</button>
+            <button class="button is-light" @click="closeModal">Cancel</button>
             </footer>
         </div>
         </div>
     </section>
     `,
+    props: ['noteToEdit'],
     data() {
         return {
             note: {
@@ -37,17 +44,24 @@ export default {
             },
         }
     },
+    created() {
+        if (!this.noteToEdit) return
+        this.note = {
+            ...this.noteToEdit,
+            data: { ...this.noteToEdit.data }
+        }
+    },
     methods: {
-        closeModal(){
+        closeModal() {
             this.$emit('toggelTxtModal')
         },
-        saveNote(){
-            this.$emit('saveNote' , this.note)
+        saveNote() {
+            this.$emit('saveNote', this.note)
         }
     },
     components: {
-            // note.color = this.note.color;
-            // this.$emit('changeBgnColor' , this.note.color)
+        // note.color = this.note.color;
+        // this.$emit('changeBgnColor' , this.note.color)
     }
 }
 

@@ -2,7 +2,9 @@ export default {
     template:`
    <section class="notes-filter">
     <form>
-        search note: <input type="text" @input="setFilter" v-model="filter.byTitle" />
+        <div class="control field">
+        <input class="input" type="text" @input="setFilter" v-model="filter.byTitle" placeholder="Search">
+        </div>
     </form>   
    
    </section>
